@@ -1,0 +1,73 @@
+html {
+  background-color: #2e8a68;
+}
+
+.container {
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+ 
+
+  background-color: aliceblue;
+  
+    width: 50%;
+    max-width: 500px;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    
+}
+
+.card-header {
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+  border: 1px gray solid;
+  border-radius: 1em;
+}
+
+
+/* Full-width inputs */
+input[type=email], input[type=password], input[type=text] {
+  background-color: aliceblue;
+  border-radius: 0.5em;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .btn {
+    border-radius: 0.5em;
+    background-color: #2e8a68;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  .btn:hover {
+    background-color: #3ba37d;
+    opacity: 0.8;
+  }
+
+
+
+
+.card-footer {
+  background-color: aliceblue;
+  margin-top: 50px;
+}  
