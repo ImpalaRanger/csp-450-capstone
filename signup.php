@@ -15,13 +15,16 @@
         else { // if connection works
 
             if(isset($_POST['first-name']) && isset($_POST['last-name'])
-            && isset($_POST['email']) && isset($_POST['password'])) {
+            && isset($_POST['email']) && isset($_POST['password'])
+            && isset($_POST['gender'])) {
                 // run query to see if email is unique
 
                 $firstName = $_POST['first-name'];
                 $lastName = $_POST['last-name'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+                $gender = $_POST['gender'];
+                $isTherapist = $_POST['isTherapist'];
 
                 $unique = true;
 
@@ -37,9 +40,10 @@
                     }
                 } else {
                     // email unique
-                    $stmt = $con->prepare("INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`)
-                    VALUES (NULL, ?, ?, ?, ?);");
-                    $stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
+                    $stmt = $con->prepare("INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`,
+                            `Gender`, `isTherapist`)
+                    VALUES (NULL, ?, ?, ?, ?, ?, ?);");
+                    $stmt->bind_param("sssssi", $firstName, $lastName, $email, $password, $gender, $isTherapist);
                     $stmt->execute();
 
                     header('Location: login.html');
@@ -72,6 +76,14 @@
                     <div class="form-group">
                         <label for="password">Password</label><br>
                         <input type="password" id="password" class="form-control" name="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label><br>
+                        <input type="text" id="gender" class="form-control" name="gender" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="isTherapist">Are you making a therapist account?</label>
+                        <input type="checkbox" id="isTherapist" class="form-control" name="isTherapist"/>
                     </div>
                     <input type='hidden' name='hidSubmitFlag' id='hidSubmitFlag' value='01'/>
                     <input type="submit" class="btn" value="Sign up" name="">

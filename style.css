@@ -4,23 +4,33 @@ html {
 
 
 .container {
-  height: 97vh;
+  /*height: 97vh;*/
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card {
- 
-
   background-color: aliceblue;
-  
-    width: 50%;
-    max-width: 500px;
-    border: solid black 2px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    
+  width: 50%;
+  max-width: 500px;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 10px 20px;   
+  margin-top: 100px;
+  margin-bottom: 100px; 
+}
+
+
+.card-signup {
+  background-color: aliceblue;
+  width: 50%;
+  max-width: 500px;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .card-header {
