@@ -1,0 +1,26 @@
+body{
+    background-color: #2E8A68;
+}
+
+main{
+    background-color: white;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 10px;
+}
+
+#ProfilePage{
+
+    text-align: center;
+
+}
+
+img{
+    max-width:30%;
+    max-width: 30%;
+    margin: 20px;
+}
+
+h2{
+    text-decoration: underline;
+}

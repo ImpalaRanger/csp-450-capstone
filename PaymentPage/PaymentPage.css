@@ -1,0 +1,21 @@
+#PaymentPage{
+
+    text-align: center;
+
+}
+#PayFullBalanceButton, #PayPartialBalanceButtonLabel, #SubmitPaymentButton{
+    margin: 20px;
+}
+
+h2{
+    text-decoration: underline;
+}
+body{
+    background-color: #2E8A68;
+}
+main{
+    background-color: white;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 10px;
+}
