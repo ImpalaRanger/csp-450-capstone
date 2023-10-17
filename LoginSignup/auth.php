@@ -24,7 +24,7 @@
                 $data = $stmt_result->fetch_assoc();
                 if($data['password'] === $password) {
                     echo "<h2>Login successful for user ".$data['first_name']." ".$data['last_name'];
-                    echo "<form id='redirect' action='dash.php' method='POST'>";
+                    echo "<form id='redirect' action='../dash.php' method='POST'>";
                     echo "<input type='hidden' name='user_id' value='".$data['id']."'>";
                     echo "</form>";
                     echo "<script type='text/javascript'>";
