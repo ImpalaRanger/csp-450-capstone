@@ -6,12 +6,14 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <header>
+    <button onclick="window.location.href='Messages/messaging.php';">Messages</button>
+    <button onclick="">Dashboard</button>
+    </header>
 Dashboard
     <?php
-        $id = $_POST['user_id'];
-        echo "user id is: ".$id;
-
-        $con = new mysqli("localhost", "root", "mysql", "therapy");
+    session_start();
+        include 'main.php';
         if($con->connect_error) {
             die("Failed to connect : ".$con->connect_error);
         }
@@ -22,6 +24,8 @@ Dashboard
             $stmt_result = $stmt->get_result();
             if($stmt_result->num_rows > 0) {
                 $data = $stmt_result->fetch_assoc();
+                $_SESSION['id'] = $id;
+                echo $id;
                 echo "<h2>Welcome back, ".$data['first_name']." ".$data['last_name']."!</h2><br>";
                 echo "Here is your information: <br>";
                 echo "Gender: " . $data['Gender'] . "<br>";
@@ -33,10 +37,14 @@ Dashboard
                 }
             }
         }
+
+        
     
     
     
     
     ?>
+
+    
 </body>
 </html>
