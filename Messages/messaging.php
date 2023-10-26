@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="messaging.css">
-
-
-
     <title>Messages</title>
 </head>
 <body>
@@ -16,7 +13,6 @@
 </header>
     
     <?php
-
 
         session_start();
         include '../main.php';
@@ -46,8 +42,6 @@
                 <?php // processes conversation selectors
                     foreach ($conversations as $conversation) {
                         $messaged_user;
-
-
 
                         $stmt2;
                         if ($conversation['sender_id'] == $id) { // user is sender
@@ -99,13 +93,17 @@
 <script>
     // global variable for tracking which conversation is currently open
     let currentConvoId = -1;
+    const userId = <?php echo $_SESSION['id']; ?>;
 
     // AJAX request for loading messages when user selects a conversation
     function getConversation() {
+        
         var convo_id = document.querySelector('input[name=convo]:checked').value;
         console.log(convo_id + " from getConversation()");
         currentConvoId = convo_id;
         
+        
+
         var xhttp;
         if (convo_id == "") {
             document.getElementById("convo-display").innerHTML = "No messages to load.";
@@ -114,7 +112,28 @@
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("convo-display").innerHTML = this.responseText;
+                document.getElementById("convo-display").innerHTML = "";
+                let messages = JSON.parse(this.responseText);
+                messages.forEach((message) =>{
+                    //console.log(message.sender_id);
+                    let indivMessage = document.createElement('div');
+                    if (message.sender_id == userId) {
+                        indivMessage.className = "message message-right";
+                        indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #ccc;border-radius: 5px;padding:5px;margin-bottom:5px;margin-left:auto;';
+                    }
+                    else {
+                        indivMessage.className = "message message-left";
+                        indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #20bee5;border-radius: 5px;padding:5px;margin-bottom:5px;';
+                        
+                    }
+                    indivMessage.innerText = message.msg;
+                    document.getElementById('convo-display').appendChild(indivMessage);
+                });
+
+
+                var display = document.getElementById('convo-display');
+                display.scrollTop = display.scrollHeight;
+                //document.getElementById("convo-display").innerHTML = messages;
             }
         };
         xhttp.open("GET", "fetch_convo.php?convo_id="+currentConvoId, true);
@@ -140,9 +159,21 @@
             if (this.readyState == 4 && this.status == 200) {
                 getConversation();
                 document.getElementById('msg').value = "";
+
             }
         }
     }
+
+
+        setInterval(() => {
+            console.log('retreving messages');
+            getConversation();
+        }, 5000);
+
+
+
+
+
 </script>
 
 
