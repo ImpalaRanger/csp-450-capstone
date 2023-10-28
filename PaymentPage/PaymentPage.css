@@ -19,3 +19,7 @@ main{
     border-radius: 10px;
     border-width: 10px;
 }
+body{
+    margin-left: 25%;
+    margin-right: 25%;
+}
