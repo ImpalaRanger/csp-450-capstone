@@ -10,7 +10,7 @@ $results = $stmt->get_result();
 if($results->num_rows > 0) {
     $msg_arr = [];
     foreach ($results as $msg) {
-        $msg_arr[] = $msg;
+        array_push($msg_arr, $msg);
     }
     echo json_encode($msg_arr);
 }//---------------------------------------------------

@@ -12,7 +12,7 @@
     </header>
 Dashboard
     <?php
-    session_start();
+
         include 'main.php';
         if($con->connect_error) {
             die("Failed to connect : ".$con->connect_error);

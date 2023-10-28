@@ -14,10 +14,9 @@
     
     <?php
 
-        session_start();
+
         include '../main.php';
 
-        $_SESSION['currentConvoId'];
         $currentConvoId;
         $conversations = [];
 
@@ -113,6 +112,7 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("convo-display").innerHTML = "";
+                console.log("response: " + this.responseText);
                 let messages = JSON.parse(this.responseText);
                 messages.forEach((message) =>{
                     //console.log(message.sender_id);
@@ -164,12 +164,12 @@
         }
     }
 
-
+/*
         setInterval(() => {
             console.log('retreving messages');
             getConversation();
         }, 5000);
-
+*/
 
 
 
