@@ -20,6 +20,9 @@ main{
     border-width: 10px;
     margin-left: 25%;
     margin-right: 25%;
+    margin-top:30px;
+    margin-bottom:30px;
+    padding:20px;
 }
 
 /*headers and footers*/
@@ -30,6 +33,7 @@ header{
     margin:0px;
     width: 100%;
     text-align: center;
+    text-decoration-color: black;
 }
 
 body{
@@ -37,7 +41,8 @@ body{
 }
 
 a{
-margin-right: 20px;
+padding: 20px;
+margin-bottom: 20px;
 font-size: large;
 text-decoration: none;
 }
@@ -47,3 +52,9 @@ text-decoration: none;
     margin-bottom: 10px;
 }
 
+footer{
+    background-color: white;
+    text-decoration-color: black;
+    padding:20px;
+    text-align:center;
+}
