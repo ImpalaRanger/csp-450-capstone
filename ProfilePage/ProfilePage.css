@@ -1,5 +1,6 @@
 body{
     background-color: #2E8A68;
+  
 }
 
 main{
@@ -7,6 +8,11 @@ main{
     border-color: black;
     border-radius: 10px;
     border-width: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:30px;
+    margin-bottom:30px;
+    padding:20px;
 }
 
 #ProfilePage{
@@ -23,4 +29,40 @@ img{
 
 h2{
     text-decoration: underline;
+}
+
+
+/*headers and footers*/
+
+header{
+    background-color: white;
+    padding:0px;
+    margin:0px;
+    width: 100%;
+    text-align: center;
+    text-decoration-color: black;
+}
+
+body{
+    margin: 0px;/*This is important*/
+}
+
+a{
+padding: 20px;
+margin-bottom: 20px;
+font-size: large;
+text-decoration: none;
+}
+#Logo{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+footer{
+    background-color: white;
+    text-decoration-color: black;
+    padding:20px;
+    text-align:center;
+
 }
