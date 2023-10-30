@@ -170,12 +170,12 @@
 
     ajaxGet("fetch_convos.php", getConversations, true);
 
-/*
+
     setInterval(() => {
         console.log('retreving messages');
         getConversation();
     }, 5000);
-*/
+
 
 
 

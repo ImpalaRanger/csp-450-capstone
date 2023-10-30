@@ -16,7 +16,6 @@ if($stmt_result->num_rows > 0) {
         array_push($conversations, $row);
     }
 }
-//echo json_encode($conversations);
 
 foreach ($conversations as $conversation) {
     $messaged_user;
@@ -51,6 +50,4 @@ foreach ($conversations as $conversation) {
     echo "<br>\n";
     echo "</div>";
 }
-// combining both arrays, email is key, convo info array is value
-///$all_convo_info = array_combine($conversations_names, $conversations);
-//echo json_encode($all_convo_info);
+
