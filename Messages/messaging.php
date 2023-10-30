@@ -29,7 +29,7 @@
             </form>
             <div class="new-convo-case">
                 <button class="btn" onclick="addConversation()">New</button>
-                <input type="text" id="new_convo_email" name="new_convo_email" placeholder="Enter email here" value="mess2@ex.com">
+                <input type="text" id="new_convo_email" name="new_convo_email" placeholder="Enter email here" value="admin@gmail.com">
             </div>
         </div>
         <div class="chat-tab conversation" id="conversation">
@@ -52,9 +52,11 @@
     let currentConvoId = -1;
     // global variable for holding user id across script
     const userId = <?php echo $_SESSION['id']; ?>;
+    // global variable for tracking list of emails user is connected to
+    let connectedUsers = [];
 
     // general use ajax get function 
-    function ajaxGet(url, cFunction) {
+    function ajaxGet(url, cFunction, async) {
         var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -62,10 +64,16 @@
                 cFunction(this);
             }
         };
-        xhttp.open("GET", url, true);
+        xhttp.open("GET", url, async);
         xhttp.send();
     }
 
+    function getConnected(xhttp) {
+        //console.log(xhttp.responseText);
+        connectedUsers = JSON.parse(xhttp.responseText);
+        console.log(connectedUsers);
+        
+    }
 
     // callback for ajax req
     function getConversations(xhttp) {
@@ -103,7 +111,7 @@
         console.log(convo_id + " from getConversation()");
         currentConvoId = convo_id;
         
-        ajaxGet("fetch_convo.php?convo_id="+currentConvoId, setConversation);
+        ajaxGet("fetch_convo.php?convo_id="+currentConvoId, setConversation, true);
     }
 
     // function that posts message to database
@@ -128,25 +136,46 @@
 
     // adds a new conversation
     function addConversation() {
-        // retrive value from textbox
+        // retrieve value from textbox
         let desiredUserEmail = document.getElementById('new_convo_email').value;
-        ajaxGet("fetch_convos.php", getConversations);
+        console.log(desiredUserEmail);
+        ajaxGet("fetch_connected.php", getConnected, false);
+        
+        ajaxGet("fetch_convos.php", getConversations, false);
+        console.log(connectedUsers);
 
-        // if convo with user and desired userid exists
-            // alert convo exists
-            // load convo
-        // else insert new convo
+        if (connectedUsers.includes(desiredUserEmail)) {
+            console.log("Already chatting with that user");
+
+        }
+        else {
+            // else insert new convo
+       
+            var params = "desiredConnect="+desiredUserEmail;
+            //console.log(params);
+            let xmr = new XMLHttpRequest();
+            xmr.open("POST", "post_conversation.php");
+            xmr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmr.send(params);
+            xmr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    ajaxGet("fetch_convos.php", getConversations, false);
+                    console.log(this.responseText);
+                }
+            }
+        }
+
 
     }
 
-    ajaxGet("fetch_convos.php", getConversations);
+    ajaxGet("fetch_convos.php", getConversations, true);
 
-
+/*
     setInterval(() => {
         console.log('retreving messages');
         getConversation();
     }, 5000);
-
+*/
 
 
 
