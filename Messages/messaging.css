@@ -123,10 +123,10 @@ input[type=text] {
     border-radius: 0.5em;
     background-color: #2e8a68;
     color: white;
-    padding: 12px 0px;
+    padding: 12px 12px;
     border: none;
     cursor: pointer;
-    width: 19%;
+    width: fit-content;
     box-sizing: border-box;
   }
   

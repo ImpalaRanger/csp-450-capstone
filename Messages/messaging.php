@@ -17,19 +17,6 @@
 
         include '../main.php';
 
-        $currentConvoId;
-        $conversations = [];
-
-        // fetches conversations the user is involved in
-        $stmt = $con->prepare("select * from conversations where sender_id = ? OR receiver_id = ?");
-        $stmt->bind_param("ii", $id, $id);
-        $stmt->execute();
-        $stmt_result = $stmt->get_result();
-        if($stmt_result->num_rows > 0) {
-            foreach ($stmt_result as $row) {
-                array_push($conversations, $row);
-            }
-        }
     ?>
 
 <div class="container">
@@ -38,41 +25,12 @@
         <div class="chat-tab chat-conversations">
             <form class='chat-conversation-selector' id='chat-conversation-selector'
             onchange='getConversation()'>
-                <?php // processes conversation selectors
-                    foreach ($conversations as $conversation) {
-                        $messaged_user;
 
-                        $stmt2;
-                        if ($conversation['sender_id'] == $id) { // user is sender
-                            $stmt2 = $con->prepare('select * from conversations
-                            join users on users.id=conversations.sender_id
-                                where sender_id=? and users.id=sender_id');
-                            $stmt2->bind_param("i", $conversation['receiver_id']);
-               
-                        }
-                        else { // user is receiver
-                            $stmt2 = $con->prepare('select * from conversations
-                            join users on users.id=conversations.receiver_id
-                                where receiver_id=? and users.id=receiver_id');
-                            $stmt2->bind_param("i", $conversation['sender_id']);
-                        }
-                        $stmt2->execute();
-                        $stmt2_result = $stmt2->get_result();
-                        $data = $stmt2_result->fetch_assoc();
-                        // retrieves first name of opposite user being messaged
-                        $messaged_user = $data['first_name'];
-
-
-                        echo "<div class='option-case'>";
-                        echo "<input type='radio' id='convo_with_" . $messaged_user
-                            ."' class='chat-convo-selector-option' name='convo' value='".$conversation['id']."'/>\n";
-                        echo "<label class='convo-option' for='convo_with_" . $messaged_user
-                        ."'>".$messaged_user."</label>\n";
-                        echo "<br>\n";
-                        echo "</div>";
-                    }
-                ?>
             </form>
+            <div class="new-convo-case">
+                <button class="btn" onclick="addConversation()">New</button>
+                <input type="text" id="new_convo_email" name="new_convo_email" placeholder="Enter email here" value="mess2@ex.com">
+            </div>
         </div>
         <div class="chat-tab conversation" id="conversation">
             <div class="convo-display" id="convo-display">
@@ -92,56 +50,60 @@
 <script>
     // global variable for tracking which conversation is currently open
     let currentConvoId = -1;
+    // global variable for holding user id across script
     const userId = <?php echo $_SESSION['id']; ?>;
 
-    // AJAX request for loading messages when user selects a conversation
+    // general use ajax get function 
+    function ajaxGet(url, cFunction) {
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                cFunction(this);
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+
+
+    // callback for ajax req
+    function getConversations(xhttp) {
+        document.getElementById('chat-conversation-selector').innerHTML = xhttp.responseText;
+    }
+
+    // callback for ajax req
+    function setConversation(xhttp) {
+        document.getElementById("convo-display").innerHTML = "";
+        console.log("response: " + xhttp.responseText);
+        let messages = JSON.parse(xhttp.responseText);
+        messages.forEach((message) =>{
+            let indivMessage = document.createElement('div');
+            if (message.sender_id == userId) {
+                indivMessage.className = "message message-right";
+                indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #ccc;border-radius: 5px;padding:5px;margin-bottom:5px;margin-left:auto;';
+            }
+            else {
+                indivMessage.className = "message message-left";
+                indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #20bee5;border-radius: 5px;padding:5px;margin-bottom:5px;';
+                
+            }
+            indivMessage.innerText = message.msg;
+            document.getElementById('convo-display').appendChild(indivMessage);
+        });
+
+
+        var display = document.getElementById('convo-display');
+        display.scrollTop = display.scrollHeight;
+    }
+
     function getConversation() {
         
         var convo_id = document.querySelector('input[name=convo]:checked').value;
         console.log(convo_id + " from getConversation()");
         currentConvoId = convo_id;
         
-        
-
-        var xhttp;
-        if (convo_id == "") {
-            document.getElementById("convo-display").innerHTML = "No messages to load.";
-            return;
-        }
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("convo-display").innerHTML = "";
-                console.log("response: " + this.responseText);
-                let messages = JSON.parse(this.responseText);
-                messages.forEach((message) =>{
-                    //console.log(message.sender_id);
-                    let indivMessage = document.createElement('div');
-                    if (message.sender_id == userId) {
-                        indivMessage.className = "message message-right";
-                        indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #ccc;border-radius: 5px;padding:5px;margin-bottom:5px;margin-left:auto;';
-                    }
-                    else {
-                        indivMessage.className = "message message-left";
-                        indivMessage.style.cssText = 'width:fit-content;max-width:70%;border: solid black 1px;background-color: #20bee5;border-radius: 5px;padding:5px;margin-bottom:5px;';
-                        
-                    }
-                    indivMessage.innerText = message.msg;
-                    document.getElementById('convo-display').appendChild(indivMessage);
-                });
-
-
-                var display = document.getElementById('convo-display');
-                display.scrollTop = display.scrollHeight;
-                //document.getElementById("convo-display").innerHTML = messages;
-            }
-        };
-        xhttp.open("GET", "fetch_convo.php?convo_id="+currentConvoId, true);
-        xhttp.send();
-    }
-
-    // AJAX request for retrieving most recent message in conversation selector
-    function getLatest() {
+        ajaxGet("fetch_convo.php?convo_id="+currentConvoId, setConversation);
     }
 
     // function that posts message to database
@@ -164,12 +126,27 @@
         }
     }
 
-/*
-        setInterval(() => {
-            console.log('retreving messages');
-            getConversation();
-        }, 5000);
-*/
+    // adds a new conversation
+    function addConversation() {
+        // retrive value from textbox
+        let desiredUserEmail = document.getElementById('new_convo_email').value;
+        ajaxGet("fetch_convos.php", getConversations);
+
+        // if convo with user and desired userid exists
+            // alert convo exists
+            // load convo
+        // else insert new convo
+
+    }
+
+    ajaxGet("fetch_convos.php", getConversations);
+
+
+    setInterval(() => {
+        console.log('retreving messages');
+        getConversation();
+    }, 5000);
+
 
 
 
