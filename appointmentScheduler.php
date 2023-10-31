@@ -15,14 +15,6 @@
     </style>
 </head>
 <body>
-    <?php
-
-    ?>
-
-    <header style="text-align: center;">
-        <h1>Header Placeholder</h1>
-    </header>
-
     <main class="container" style="background-color: white;">
         <div id="appointment-form">
             <h1>Appointment Scheduler</h1>

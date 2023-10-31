@@ -11,10 +11,7 @@
     ?>
 </head>
 <body>
-    <nav>
-        <!-- navigation links go here -->
-    </nav>
-    
+
  <section><h1>Frequently Asked Questions: </h1></section>
     <div class="faq-item">
         <div class="question"> How do I schedule an appointment?</div>

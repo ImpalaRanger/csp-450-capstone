@@ -25,37 +25,7 @@ main{
     padding:20px;
 }
 
-/*headers and footers*/
-
-header{
-    background-color: white;
-    padding:0px;
-    margin:0px;
-    width: 100%;
-    text-align: center;
-    text-decoration-color: black;
-}
-
 body{
     margin: 0px;/*This is important*/
 }
 
-a{
-padding: 20px;
-margin-bottom: 20px;
-font-size: large;
-text-decoration: none;
-}
-#Logo{
-    text-align: center;
-    font-size: x-large;
-    margin-bottom: 10px;
-}
-
-footer{
-    background-color: white;
-    text-decoration-color: black;
-    padding:20px;
-    text-align:center;
-    
-}

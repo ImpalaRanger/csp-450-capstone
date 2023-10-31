@@ -12,22 +12,9 @@
 </head>
 <body>
     <div class="container">
-        <!DOCTYPE html>
-<html lang="en">
+       
+ 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Therapy Website Privacy Policy</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file if you have one -->
-</head>
-
-<body>
-
-
-    <nav>
-        <!-- navigation links go here -->
-    </nav>
 
     <main>
 

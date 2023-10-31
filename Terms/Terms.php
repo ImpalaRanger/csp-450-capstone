@@ -13,10 +13,6 @@
 </head>
 
 <body>
-    <header>
-        <!-- You can add header content here if needed -->
-    </header>
-
     <main>
         <h1>Terms and Conditions</h1>
         
