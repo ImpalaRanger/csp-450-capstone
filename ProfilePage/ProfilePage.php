@@ -5,23 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <link rel="stylesheet" type="text/css" href="ProfilePage.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <?php
+    include_once '../nav.php';
+    ?>
 </head>
 <body>
-
-    <header id="Header">
-
-        <section id="Logo">
-            PLACE HOLDER
-        </section>
-
-        <section id="HeaderSection">
-            <a href="">Schedule an Appointment</a>
-            <a href="">Chat</a>
-            <a href="">Make a Payment</a>
-            <a href="">Profile Page</a>
-
-        </section>
-    </header>
     
     <main id="ProfilePage">
 
@@ -75,17 +64,6 @@
     </main>
 
     <footer id="Footer">
-        <section id="FooterSection1">
-            <a href="">Home</a>
-            <a href="">Profile Page</a>
-            <a href="">Chat Page</a>
-            <a href="">Appointment Scheduler</a>
-            <a href="">Payment Page</a>
-            <a href="">Privacy Policy</a>
-            <a href="">Terms of Service</a>
-            <a href="">FAQ</a>
-            <a href="">Contact Us</a>
-        </section>
 
     </footer>
 </body>

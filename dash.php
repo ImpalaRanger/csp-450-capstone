@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <?php
+    include_once 'nav.php';
+    ?>
 </head>
 <body>
-    <header>
-    <button onclick="window.location.href='Messages/messaging.php';">Messages</button>
-    <button onclick="">Dashboard</button>
-    </header>
+
 Dashboard
     <?php
 

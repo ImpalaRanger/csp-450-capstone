@@ -5,27 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <link rel="stylesheet" type="text/css" href="PaymentPage.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <?php
+    include_once '../nav.php';
+    ?>
+    
 </head>
 <body>
 
-    <?php
-    echo "Hello World!";
-    ?>
-
-    <header id="Header">
-
-        <section id="Logo">
-            PLACE HOLDER
-        </section>
-
-        <section id="HeaderSection">
-            <a href="">Schedule an Appointment</a>
-            <a href="">Chat</a>
-            <a href="">Make a Payment</a>
-            <a href="">Profile Page</a>
-
-        </section>
-    </header>
     
     <main id="PaymentPage">
 

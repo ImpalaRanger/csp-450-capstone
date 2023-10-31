@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="messaging.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <?php
+    include_once '../nav.php';
+    ?>
     <title>Messages</title>
 </head>
 <body>
-<header>
-<button onclick="">Messages</button>
-<button onclick="window.location.href='../dash.php';">Dashboard</button>
-</header>
     
     <?php
 
@@ -29,7 +29,7 @@
             </form>
             <div class="new-convo-case">
                 <button class="btn" onclick="addConversation()">New</button>
-                <input type="text" id="new_convo_email" name="new_convo_email" placeholder="Enter email here" value="admin@gmail.com">
+                <input type="text" id="new_convo_email" name="new_convo_email" placeholder="Enter email here">
             </div>
         </div>
         <div class="chat-tab conversation" id="conversation">
@@ -55,7 +55,7 @@
     // global variable for tracking list of emails user is connected to
     let connectedUsers = [];
 
-    // general use ajax get function 
+    // general use ajax get function
     function ajaxGet(url, cFunction, async) {
         var xhttp;
         xhttp = new XMLHttpRequest();

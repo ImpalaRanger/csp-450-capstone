@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy</title>
     <link rel="stylesheet" type="text/css" href="PrivacyPolicy.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <?php
+    include_once '../nav.php';
+    ?>
 </head>
 <body>
     <div class="container">

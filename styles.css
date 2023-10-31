@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+/* nav bar/header styles */
+header{
+    background-color: white;
+    padding:0px;
+    margin:0px;
+    width: 100%;
+    text-align: center;
+    text-decoration-color: black;
+}
+
+a{
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    text-decoration: none;
+    }
+
+#Logo{
+        text-align: center;
+        font-size: x-large;
+        margin-bottom: 10px;
+    }
