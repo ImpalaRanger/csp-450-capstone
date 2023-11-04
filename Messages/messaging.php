@@ -21,7 +21,7 @@
 
 <div class="container">
     <h1>Messages</h1>
-    <div class="chat-container">
+    <div class="inner-container">
         <div class="chat-tab chat-conversations">
             <form class='chat-conversation-selector' id='chat-conversation-selector'
             onchange='getConversation()'>

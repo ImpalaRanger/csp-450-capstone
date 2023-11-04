@@ -10,22 +10,7 @@
 h2{
     text-decoration: underline;
 }
-body{
-    background-color: #2E8A68;
-}
-main{
-    background-color: white;
-    border-color: black;
-    border-radius: 10px;
-    border-width: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top:30px;
-    margin-bottom:30px;
-    padding:20px;
-}
 
-body{
-    margin: 0px;/*This is important*/
-}
+
+
 

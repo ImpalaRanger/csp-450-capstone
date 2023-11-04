@@ -14,10 +14,11 @@
 <body>
 
     
-    <main id="PaymentPage">
+    <main id="PaymentPage" class="container">
 
         <h1 id="Header1">Payment Page</h1>
 
+        <div class="inner-container"> 
         <form id="Balance">
 
             <section id="CurrentBalanceSection">
@@ -180,7 +181,7 @@
 
         </form>
 
-        
+</div>
 
     </main>
 

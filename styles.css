@@ -1,7 +1,31 @@
+html {
+    background-color: #2e8a68;
+  }
 
+body {
+    margin: 0;
+}
 
+.container {
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+.inner-container {
+    background-color: aliceblue;
 
+    min-height: 87vh;
+    width: 90%;
+    max-width: 900px;
+    border: solid black 2px;
+    border-radius: 20px;  
+
+    display:flex;
+    flex-direction:row;
+  } 
 
 
 

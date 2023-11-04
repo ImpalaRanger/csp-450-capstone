@@ -9,15 +9,11 @@
     <?php
     include_once 'nav.php';
     ?>
-    <style>
-        label {padding: 5px; line-height: 3;}
-        body {padding-left: 15%; padding-right: 15%;}
-    </style>
 </head>
 <body>
-    <main class="container" style="background-color: white;">
-        <div id="appointment-form">
-            <h1>Appointment Scheduler</h1>
+    <main class="container" >
+        <h1>Appointment Scheduler</h1>
+        <div id="appointment-form" class="inner-container">
             <form>
                 <label for="selectName">Select a Name:</label>
                 <select id="selectName" name="selectName">

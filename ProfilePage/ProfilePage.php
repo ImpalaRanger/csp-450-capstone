@@ -12,9 +12,26 @@
 </head>
 <body>
     
-    <main id="ProfilePage">
+    <?php 
+    
+    include_once '../main.php';
+
+    $stmt = $con->prepare('select * from users where id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while($userInfo = $result->fetch_assoc()) {
+        $firstName = $userInfo['first_name'];
+        $lastName = $userInfo['last_name'];
+        $email = $userInfo['email'];
+    }
+    
+    ?>
+
+    <main id="ProfilePage" class="container">
 
         <h1 id="Header1">Profile Page</h1>
+    <div class="inner-container">
 
         <section id="TextFields">
         
@@ -24,7 +41,7 @@
 
                     <h2 id="FirstNameHeader">First Name</h2>
 
-                    <p id="FirstName">First Name</p>
+                    <? echo '<p id="FirstName">'. $firstName .'</p>' ?>
 
                 </section>
 
@@ -32,7 +49,7 @@
 
                     <h2 id="LastNameHeader">Last Name</h2>
 
-                    <p id="LastName">Last Name</p>
+                    <? echo '<p id="LastName">'. $lastName .'</p>' ?>
 
                 </section>
 
@@ -40,7 +57,7 @@
 
                     <h2 id="EmailHeader">Email</h2>
 
-                    <p id="EmailAddress">email@email.com</p>
+                    <? echo '<p id="EmailAddress">'. $email .'</p>' ?>
 
                 </section>
 
@@ -61,6 +78,7 @@
 
         </section>
 
+    </div>
     </main>
 
     <footer id="Footer">
