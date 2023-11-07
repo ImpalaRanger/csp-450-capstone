@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="FAQ.css">
     <title>Frequently Asked Questions</title>
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
@@ -12,7 +11,10 @@
 </head>
 <body>
 
- <section><h1>Frequently Asked Questions: </h1></section>
+<div class="container">
+ <h1>Frequently Asked Questions: </h1>
+ <section class="inner-container">
+    <div class="faq-info">
     <div class="faq-item">
         <div class="question"> How do I schedule an appointment?</div>
         <div class="answer">To schedule an appointment, please visit our scheduling page or contact our support team.</div>
@@ -42,7 +44,9 @@
         <div class="question"> I have a different question.</div>
         <div class="answer">Please click <a href="/ContactUs/ContactUs.html">"here"</a> to fill out a custom question form.</div>
     </div>
-
+</div>
+</section>
+</div>
     <script src="FAQ.js"></script>
 </body>
 <footer>

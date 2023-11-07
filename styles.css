@@ -62,3 +62,40 @@ a{
 .container-info {
   padding: 10px;
 }
+
+
+/* faq page-specific */
+
+.faq-info {
+  width: 100%;
+}
+
+
+.faq-item {
+  width: 80%;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.question {
+  padding: 15px;
+  font-weight: bold;
+}
+
+.answer {
+  padding: 15px;
+  display: none;
+}
+
+.faq-item.expanded {
+  transform: scaleY(1.1);
+}
+
+.faq-item.expanded .answer {
+  display: block;
+}
