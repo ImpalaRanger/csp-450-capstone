@@ -12,7 +12,7 @@
 </head>
 <body>
     
-    <?php 
+    <?php
     
     include_once '../main.php';
 
@@ -41,7 +41,7 @@
 
                     <h2 id="FirstNameHeader">First Name</h2>
 
-                    <? echo '<p id="FirstName">'. $firstName .'</p>' ?>
+                    <?php echo '<p id="FirstName">'. $firstName .'</p>' ?>
 
                 </section>
 
@@ -49,7 +49,7 @@
 
                     <h2 id="LastNameHeader">Last Name</h2>
 
-                    <? echo '<p id="LastName">'. $lastName .'</p>' ?>
+                    <?php echo '<p id="LastName">'. $lastName .'</p>' ?>
 
                 </section>
 
@@ -57,19 +57,15 @@
 
                     <h2 id="EmailHeader">Email</h2>
 
-                    <? echo '<p id="EmailAddress">'. $email .'</p>' ?>
+                    <?php echo '<p id="EmailAddress">'. $email .'</p>' ?>
 
                 </section>
 
                 <section id="UserIDSection">
 
                     <h2 id="UserIDHeader">User ID</h2>
-
-                    <label id="UserIDLabel">
-                      
-                    </label>
         
-                    <p>12345678</p>
+                    <?php echo '<p id="Id">' . $id . '</p>' ?>
 
                 </section>
 
