@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy</title>
-    <link rel="stylesheet" type="text/css" href="PrivacyPolicy.css">
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include_once '../nav.php';
@@ -15,17 +14,15 @@
        
  
 
+        <h1>Privacy Policy</h1>
 
-    <main>
+    <main class="inner-container">
 
-        <section>
-            <h1>Privacy Policy</h1>
-        <section>
+
+        <section class="container-info">
             <h3>Last Updated: [Insert Date]</h3>
             <p>This privacy notice discloses the privacy practices for [Your Therapy Website Name]. This privacy notice applies solely to information collected by this website.</p>
-        </section>
 
-        <section>
             <h3>Information We Collect</h3>
     
             <p>We may collect personal information such as your name, email address, and other information you voluntarily

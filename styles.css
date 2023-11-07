@@ -1,3 +1,5 @@
+/* site wide styles */
+
 html {
     background-color: #2e8a68;
   }
@@ -7,7 +9,7 @@ body {
 }
 
 .container {
-    height: 97vh;
+    min-height: 97vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,3 +53,12 @@ a{
         font-size: x-large;
         margin-bottom: 10px;
     }
+
+
+
+
+ 
+/* privary policy page-specific */    
+.container-info {
+  padding: 10px;
+}
