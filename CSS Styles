@@ -1,0 +1,123 @@
+/* Global Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ea; /* Light green background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #2E8A68; /* Dark green background color for the header */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    background-color: #2E8A68; /* Green background color for navigation */
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Main Content Styles */
+main {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White background for main content */
+}
+
+/* FAQ Item Styles */
+.faq-item {
+    width: 80%;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-item.expanded {
+    transform: scaleY(1.1);
+}
+
+.faq-item.expanded .answer {
+    display: block;
+}
+
+.question, .answer {
+    padding: 15px;
+}
+
+.answer {
+    display: none;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    margin-bottom: 16px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2E8A68; /* Dark green background color for the footer */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Additional Styles */
+section {
+    margin-bottom: 20px;
+}
