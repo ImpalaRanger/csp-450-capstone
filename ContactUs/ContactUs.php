@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ContactUs.css">
+    <!--<link rel="stylesheet" href="ContactUs.css">-->
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
@@ -13,11 +13,9 @@
 
 <body>
 
-    <header>
-       
-    </header>
-
-    <main>
+    <main class="container">
+<div class="inner-container">
+<div class="contact-info">
         <section>
             <h1>Contact Us: </h1>
         </section>
@@ -53,6 +51,9 @@
                 <input type="submit" value="Submit">
             </form>
         </section>
+
+</div>
+</div>
     </main>
 
     <footer>

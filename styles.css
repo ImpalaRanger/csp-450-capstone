@@ -57,7 +57,7 @@ a{
 
  
 /* privary policy page-specific */    
-.container-info {
+.container-info{
   padding: 10px;
 }
 
@@ -101,3 +101,33 @@ a{
 .terms-info {
   padding: 10px;
 }
+
+
+/* contact us page-specific */
+
+.contact-info {
+  padding: 10px;
+  width: 100%;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  margin-bottom: 16px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
