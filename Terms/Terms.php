@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions</title>
-    <link rel="stylesheet" href="Terms.css">
+    <!--<link rel="stylesheet" href="Terms.css">-->
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include_once '../nav.php';
@@ -13,9 +13,10 @@
 </head>
 
 <body>
-    <main>
+    <main class="container">
         <h1>Terms and Conditions</h1>
-        
+        <div class="inner-container">
+            <div class="terms-info">
         <section>
             <h2>1. Acceptance of Terms</h2>
             <p>By accessing or using our platform, you agree to these Terms and Conditions. If you do not agree to all the terms and conditions, you may not use our services.</p>
@@ -51,6 +52,8 @@
         <section>
             <p>If you have any questions or concerns regarding these terms, please <a href="/ContactUs/ContactUs.html">contact us</a>.</p>
         </section>
+        </div>
+    </div>
     </main>
 
     <footer>

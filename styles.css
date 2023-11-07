@@ -18,13 +18,11 @@ body {
 
 .inner-container {
     background-color: aliceblue;
-
     min-height: 87vh;
     width: 90%;
     max-width: 900px;
     border: solid black 2px;
     border-radius: 20px;  
-
     display:flex;
     flex-direction:row;
   } 
@@ -98,4 +96,8 @@ a{
 
 .faq-item.expanded .answer {
   display: block;
+}
+
+.terms-info {
+  padding: 10px;
 }
