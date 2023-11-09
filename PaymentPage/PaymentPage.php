@@ -18,7 +18,7 @@
 
         <h1 id="Header1">Payment Page</h1>
 
-        <div class="inner-container"> 
+        <div class="inner-container">
         <form id="Balance">
 
             <section id="CurrentBalanceSection">
@@ -53,7 +53,7 @@
                       
                     </label>
         
-                    <input type="text" name="PaymentAmount" 
+                    <input type="text" name="PaymentAmount"
                     placeholder="$000,000.00"
                     id="PaymentAmountInput">
 
@@ -69,8 +69,8 @@
                       
                     </label>
         
-                    <input type="text" name="CreditCardNumber" 
-                    placeholder="1234 5678 9123 456" 
+                    <input type="text" name="CreditCardNumber"
+                    placeholder="1234 5678 9123 456"
                     id="CreditCardNumberInput">
 
             </section>
@@ -83,8 +83,8 @@
                       
                     </label>
         
-                    <input type="text" name="ExpirationDate" 
-                    placeholder="00/00" 
+                    <input type="text" name="ExpirationDate"
+                    placeholder="00/00"
                     id="ExpirationDateInput">
 
             </section>
@@ -97,8 +97,8 @@
                       
                     </label>
         
-                    <input type="text" name="SecurityCode" 
-                    placeholder="000" 
+                    <input type="text" name="SecurityCode"
+                    placeholder="000"
                     id="SecurityCodeInput">
 
             </section>
@@ -111,8 +111,8 @@
                       
                     </label>
         
-                    <input type="text" name="NameOnCard" 
-                    placeholder="FirstName LastName" 
+                    <input type="text" name="NameOnCard"
+                    placeholder="FirstName LastName"
                     id="NameOnCardInput">
 
             </section>
@@ -127,7 +127,7 @@
                       
                     </label>
         
-                    <input type="text" name="StreetAddress" 
+                    <input type="text" name="StreetAddress"
                     id="StreetAddressInput">
 
             </section>
@@ -140,7 +140,7 @@
                       
                     </label>
         
-                    <input type="text" name="StateAddress" 
+                    <input type="text" name="StateAddress"
                     id="StateAddressInput">
 
             </section>
@@ -153,7 +153,7 @@
                       
                     </label>
         
-                    <input type="text" name="ZipCode" 
+                    <input type="text" name="ZipCode"
                     id="ZipCodeInput">
 
             </section>
@@ -166,7 +166,7 @@
                       
                     </label>
         
-                    <input type="text" name="Country" 
+                    <input type="text" name="Country"
                     id="CountryInput">
 
             </section>
