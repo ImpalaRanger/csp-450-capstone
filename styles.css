@@ -110,11 +110,11 @@ a{
   width: 100%;
 }
 
-section {
+.contact-section {
   margin-bottom: 20px;
 }
 
-form {
+.contact-form {
   display: flex;
   flex-direction: column;
 }

@@ -16,23 +16,23 @@
     <main class="container">
 <div class="inner-container">
 <div class="contact-info">
-        <section>
+        <section class="contact-section">
             <h1>Contact Us: </h1>
         </section>
-        <section>
+        <section class="contact-section">
             <h3>Our Phone Number</h3>
             <p>123-456-7890</p>
         </section>
 
-        <section>
+        <section class="contact-section">
             <h3>Our Email Address</h3>
             <p>info@example.com</p>
         </section>
 
-        <section>
+        <section class="contact-section">
             <h3>Contact Form</h3>
             <!--replace the # with url/endpoint which will handle the submission-->
-            <form action="#" method="post" id="contactForm">
+            <form class="contact-form" action="#" method="post" id="contactForm">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" required>
 
