@@ -7,7 +7,15 @@
     <link rel="stylesheet" type="text/css" href="PaymentPage.css">
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
-    include_once '../nav.php';
+    include '../main.php';
+
+    $id = $_SESSION['id'];
+
+    $self = $_SERVER['PHP_SELF'];
+
+    function displayBalance(){
+        echo("hello");
+    }
     ?>
     
 </head>
@@ -19,31 +27,18 @@
         <h1 id="Header1">Payment Page</h1>
 
         <div class="inner-container">
-        <form id="Balance">
 
             <section id="CurrentBalanceSection">
 
                 <h2 id="CurrentBalanceHeader">Current Balance</h2>
 
-                    <p id="CurrentBalance">$40,000.00</p>
+                <?php
+                displayBalance();
+                ?>
+            
 
-            </section>
-
-            <section id="Buttons">
-
-                    <label id="PayFullBalanceButtonLabel"></label>
-
-                    <input type="button" value="Pay Full Balance" id="PayFullBalanceButton">
-
-                    <label id="PayPartialBalanceButtonLabel"></label>
-
-                    <input type="button" value="Pay Partial Balance" id="PayPartialBalanceButton">
-
-            </section>
-
-        </form>
-
-        <form id="PaymentInformation">
+            
+        <form action="<?php $self?>" method="POST" id="PaymentInformation">
 
             <section id="PaymentAmount">
 
