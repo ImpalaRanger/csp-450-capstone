@@ -9,12 +9,13 @@
     <?php
     include '../main.php';
 
-    $id = $_SESSION['id'];
+    /*$id = $_SESSION['id'];
 
-    $self = $_SERVER['PHP_SELF'];
+    $self = $_SERVER['PHP_SELF'];*/
 
     function displayBalance(){
-        echo("hello");
+        $stmt = $con->prepare('SELECT * FROM messages WHERE conversation_id = ?
+    ORDER BY submit_date ASC');
     }
     ?>
     
