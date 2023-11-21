@@ -1,0 +1,60 @@
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form items horizontally */
+}
+
+label {
+    margin-bottom: 12px;
+}
+
+input, select, textarea {
+    margin-bottom: 16px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    appearance: none;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: auto; /* Allow button width to adjust based on content */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Additional Styles for Centering Form */
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%; /* Make the form take the full width of the inner container */
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally within the inner container */
+}
+
+/* Additional Styles for Larger Dropdown Options */
+select {
+    font-size: 16px; /* Set font size for the collapsed state */
+}
+
+select option {
+    font-size: 16px; /* Set font size for the options within the dropdown */
+}
