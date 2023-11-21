@@ -11,14 +11,16 @@
 
     function displayBalance(){
         global $con;
-        $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 1');
+        $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 2');
         $stmt->execute();
         $result= $stmt->get_result(); 
-        foreach($result as $row) {
-            echo $row['balanceAmount'];       
-        }      
-
-        
+            if($result->num_rows > 0){
+            foreach($result as $row) {
+                echo $row['balanceAmount'];       
+            }      
+        }else{
+            echo '0.00';
+        }        
       }
     
     ?>
