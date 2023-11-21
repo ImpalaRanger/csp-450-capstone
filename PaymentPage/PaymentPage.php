@@ -10,9 +10,10 @@
     include '../main.php';
     global $balance;
     global $hasBalance;
+    $id = 1;//$_SESSION['id'];
 
     //1 needs to be replaced with the id variable
-    $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 1');
+    $stmt = $con->prepare('SELECT * FROM balance WHERE userID ='.$id);
     $stmt->execute();
     $result= $stmt->get_result(); 
         if($result->num_rows > 0){
@@ -28,34 +29,39 @@
         global $balance;
         global $hasBalance;
         if($hasBalance){
-            echo $balance;
+            echo number_format($balance, 2);
         }
         else{
             echo '0.00';
         }        
       }
-      if(isset($_POST)){
+      if(isset($_POST['submit'])){
         addRecord();
       }
       function addRecord(){
         global $con;
         global $balance;
-        $newUserBalance=(float)$balance-(float)$_POST['txtPaymentAmount'];
-        echo $newUserBalance;
+        global $id;
+        $paymentAmount=(float)$_POST['txtPaymentAmount'];
+        $newUserBalance=(float)$balance-$paymentAmount;
         $balance=$newUserBalance;
+        
         //Update the balance of the user in the balance table.
-        /*
-        $stmt = $con->prepare('UPDATE balance SET balanceAmount=$balance-$_POST');
+        
+        $stmt = $con->prepare('UPDATE balance SET balanceAmount='.$newUserBalance.' WHERE userID='.$id);
         $stmt->execute();
         $result= $stmt->get_result();
         //Insert a new record into the transaction table.
-        $stmt1=$con->prepare('');
-        if($stmt===TRUE){
-            echo 'The transaction was successful!';
-        }
-        else{
-            echo 'The transaction was NOT successful!';
-        }*/
+        $tableName='transaction';
+        $stmt1=$con->prepare("INSERT INTO `transaction` (`transactionAmount`, `userID`) VALUES (".$paymentAmount.", ".$id.")");
+        $stmt1->execute();
+        $result1=$stmt1->get_result();
+
+        unset($_POST['submit']);
+        unset($_POST['txtPaymentAmount']);
+        $_POST['txtPaymentAmount']=0;
+        $_POST = array();
+        
       }
     
     ?>
@@ -212,7 +218,7 @@
 
                 <label id="SubmitPaymentButtonButtonLabel"></label>
 
-                <input type="submit" value="Submit Payment" id="SubmitPaymentButton">
+                <input type="submit" value="Submit Payment" id="SubmitPaymentButton" name="submit" >
 
             </section>
 
