@@ -8,19 +8,54 @@
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include '../main.php';
+    global $balance;
+    global $hasBalance;
 
-    function displayBalance(){
-        global $con;
-        $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 2');
-        $stmt->execute();
-        $result= $stmt->get_result(); 
-            if($result->num_rows > 0){
+    //1 needs to be replaced with the id variable
+    $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 1');
+    $stmt->execute();
+    $result= $stmt->get_result(); 
+        if($result->num_rows > 0){
             foreach($result as $row) {
-                echo $row['balanceAmount'];       
+                $balance= $row['balanceAmount']; 
+                $hasBalance= true;
             }      
         }else{
+            $hasBalance= true;
+        }
+
+    function displayBalance(){
+        global $balance;
+        global $hasBalance;
+        if($hasBalance){
+            echo $balance;
+        }
+        else{
             echo '0.00';
         }        
+      }
+      if(isset($_POST)){
+        addRecord();
+      }
+      function addRecord(){
+        global $con;
+        global $balance;
+        $newUserBalance=(float)$balance-(float)$_POST['txtPaymentAmount'];
+        echo $newUserBalance;
+        $balance=$newUserBalance;
+        //Update the balance of the user in the balance table.
+        /*
+        $stmt = $con->prepare('UPDATE balance SET balanceAmount=$balance-$_POST');
+        $stmt->execute();
+        $result= $stmt->get_result();
+        //Insert a new record into the transaction table.
+        $stmt1=$con->prepare('');
+        if($stmt===TRUE){
+            echo 'The transaction was successful!';
+        }
+        else{
+            echo 'The transaction was NOT successful!';
+        }*/
       }
     
     ?>
@@ -55,7 +90,7 @@
                       
                     </label>
         
-                    <input type="text" name="PaymentAmount"
+                    <input type="text" name="txtPaymentAmount"
                     placeholder="$000,000.00"
                     id="PaymentAmountInput">
 
