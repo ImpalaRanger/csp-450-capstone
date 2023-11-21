@@ -9,13 +9,24 @@
     <?php
     include '../main.php';
 
-    /*$id = $_SESSION['id'];
+        session_start();
 
-    $self = $_SERVER['PHP_SELF'];*/
+    if (isset($_POST['fromAuth']) && isset($_POST['fromAuth']) == '01') {
+        $_SESSION['id'] = $_POST['user_id'];
+    }
+
+    $id = $_SESSION['id'];
+    $con = new mysqli("localhost", "root", "mysql", "therapy");
+
+    if($con->connect_error) {
+        exit('Could not connect');
+    }
 
     function displayBalance(){
-        $stmt = $con->prepare('SELECT * FROM messages WHERE conversation_id = ?
-    ORDER BY submit_date ASC');
+        $con = new mysqli("localhost", "root", "mysql", "therapy");
+        $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 1');
+        $stmt->execute();
+        echo $stmt->get_result();
     }
     ?>
     
