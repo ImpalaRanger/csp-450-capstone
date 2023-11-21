@@ -9,25 +9,18 @@
     <?php
     include '../main.php';
 
-        session_start();
-
-    if (isset($_POST['fromAuth']) && isset($_POST['fromAuth']) == '01') {
-        $_SESSION['id'] = $_POST['user_id'];
-    }
-
-    $id = $_SESSION['id'];
-    $con = new mysqli("localhost", "root", "mysql", "therapy");
-
-    if($con->connect_error) {
-        exit('Could not connect');
-    }
-
     function displayBalance(){
-        $con = new mysqli("localhost", "root", "mysql", "therapy");
+        global $con;
         $stmt = $con->prepare('SELECT * FROM balance WHERE userID = 1');
         $stmt->execute();
-        echo $stmt->get_result();
-    }
+        $result= $stmt->get_result(); 
+        foreach($result as $row) {
+            echo $row['balanceAmount'];       
+        }      
+
+        
+      }
+    
     ?>
     
 </head>
