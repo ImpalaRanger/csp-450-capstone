@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Scheduler</title>
-    <link rel="stylesheet" type="text/css" href="cssStyles.css">
+    <link rel="stylesheet" type="text/css" href="../cssStyles.css">
     <?php
-    include_once 'nav.php';
-    include_once 'main.php'; // Include the database connection file
+    include_once '../nav.php';
+    include_once '../main.php'; // Include the database connection file
 
     // Query to select users where isTherapist is null
     $query = "SELECT id, first_name, last_name FROM users WHERE isTherapist IS NULL";
@@ -34,7 +34,7 @@
     <main class="container">
         <h1 style="text-align:center">Appointment Scheduler</h1>
         <div id="appointment-form" class="inner-container">
-            <form>
+            <form method="post" action="submitAppointment.php">
                 <label for="selectName">Select a Name:</label>
                 <select id="selectName" name="selectName">
                     <option value="">Select a Therapist</option> <!-- Default option -->
@@ -75,43 +75,55 @@
     $con->close();
     ?>
 
-    <script>
-        function checkAvailability() {
-            // Get selected values
-            var therapistId = document.getElementById('selectName').value;
-            var selectedDate = document.getElementById('selectDate').value;
-            var selectedTimeId = document.getElementById('selectTime').value;
+<script>
+    function checkAvailability() {
+        // Get selected values
+        var therapistId = document.getElementById('selectName').value;
+        var selectedDate = document.getElementById('selectDate').value;
+        var selectedTimeId = document.getElementById('selectTime').value;
 
-            // Ajax request to check availability
-            var xhttp = new XMLHttpRequest();
-            // Send the request to the server
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Handle the response, show a popup or modify the UI accordingly
-                    var response = this.responseText.trim();
-                    if (response === "available") {
-                        alert("Appointment slot is available. You can proceed to schedule.");
-                        showSubmitButton(); // Show the submit button
-                    } else {
-                        alert("Selected appointment slot is not available. Please pick a new time.");
-                    }
+        // Ajax request to check availability
+        var xhttp = new XMLHttpRequest();
+
+        // Send the request to the server
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Handle the response, show a popup or modify the UI accordingly
+                var response = this.responseText.trim();
+                if (response === "available") {
+                    alert("Appointment slot is available. You can proceed to schedule.");
+                    showSubmitButton(); // Show the submit button
+                } else {
+                    alert("Selected appointment slot is not available. Please pick a new time.");
                 }
-            };
-            
-            xhttp.open("GET", "checkAvailability.php?therapistId=" + therapistId + "&selectedDate=" + selectedDate + "&selectedTimeID=" + selectedTimeId, true);
-            xhttp.send();
-        }
+            }
+        };
 
-        function showSubmitButton() {
-            // Create a submit button
-            var submitButton = document.createElement("button");
-            submitButton.className = "btn";
-            submitButton.type = "submit";
-            submitButton.textContent = "Submit Appointment";
-            
-            // Append the submit button to the submit-container
-            document.getElementById("submit-container").appendChild(submitButton);
-        }
-    </script>
+        xhttp.open("GET", "checkAvailability.php?therapistId=" + therapistId + "&selectedDate=" + selectedDate + "&selectedTimeID=" + selectedTimeId, true);
+        xhttp.send();
+    }
+
+    function showSubmitButton() {
+        // Create a submit button
+        var submitButton = document.createElement("button");
+        submitButton.className = "btn";
+        submitButton.type = "button"; // Change to "button" to prevent form submission
+        submitButton.textContent = "Submit Appointment";
+
+        // Add a click event listener to the submit button
+        submitButton.addEventListener("click", function () {
+            submitAppointment();
+        });
+
+        // Append the submit button to the submit-container
+        document.getElementById("submit-container").appendChild(submitButton);
+    }
+
+    function submitAppointment() {
+        // Submit the form when the button is clicked
+        document.querySelector('form').submit();
+    }
+</script>
+
 </body>
 </html>

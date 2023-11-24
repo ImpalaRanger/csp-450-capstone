@@ -1,5 +1,5 @@
 <?php
-include_once 'main.php'; // Include the database connection file
+include_once '../main.php'; // Include the database connection file
 
 // Check if therapistId, selectedDate, and selectedTime are set in the URL
 if (
