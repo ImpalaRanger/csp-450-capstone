@@ -11,38 +11,63 @@
 </head>
 <body>
 
-Dashboard
     <?php
-
         include 'main.php';
 
-        $stmt = $con->prepare("select * from users where id = ?");
+        // Assuming the client's user ID is stored in $id
+        $stmt = $con->prepare("SELECT a.*, at.timeStart, at.timeFinish FROM appointment a
+                              INNER JOIN appointmentTime at ON a.timeID = at.timeID
+                              WHERE a.clientID = ? AND a.date >= CURDATE() ORDER BY a.date ASC LIMIT 5");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $appointments_result = $stmt->get_result();
+
+        $stmt = $con->prepare("SELECT first_name, last_name FROM users WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $stmt_result = $stmt->get_result();
+
         if($stmt_result->num_rows > 0) {
             $data = $stmt_result->fetch_assoc();
-            $_SESSION['id'] = $id;
-            echo $id;
-            echo "<h2>Welcome back, ".$data['first_name']." ".$data['last_name']."!</h2><br>";
-            echo "Here is your information: <br>";
-            echo "Gender: " . $data['Gender'] . "<br>";
-            if($data['isTherapist'] === 0) {
-                echo "You are a therapist.";
-            }
-            else {
-                echo "You are NOT a therapist.";
-            }
+            echo "<h2>Welcome back, " . $data['first_name'] . " " . $data['last_name'] . "!</h2><br>";
         }
-        
 
-        
-    
-    
-    
-    
+
+        // Display upcoming appointments
+        echo "<h3>Your upcoming appointments:</h3>";
+        if($appointments_result->num_rows > 0) {
+            echo "<ul>";
+            while ($appointment = $appointments_result->fetch_assoc()) {
+                $formattedStartTime = date('g:i A', strtotime($appointment['timeStart']));
+                $formattedEndTime = date('g:i A', strtotime($appointment['timeFinish']));
+
+                echo "<li>Appointment on " . $appointment['date'] . " from " . $formattedStartTime . " to " . $formattedEndTime . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<p>No upcoming appointments.</p>";
+        }
+
+
+        // Get the client's account balance
+        $stmtBalance = $con->prepare("SELECT balanceAmount FROM clientBalance WHERE clientID = ?");
+        $stmtBalance->bind_param("i", $id);
+        $stmtBalance->execute();
+        $balance_result = $stmtBalance->get_result();
+
+        // Display account balance
+        echo "<h3>Your account balance:</h3>";
+        if($balance_result->num_rows > 0) {
+            $balance = $balance_result->fetch_assoc()['balanceAmount'];
+            echo "<p>Your current balance: $" . $balance . "</p>";
+        } else {
+            echo "<p>Account balance not found.</p>";
+        }
+
+        $stmt->close();
+        $stmtBalance->close();
+        $con->close();
     ?>
-
     
 </body>
 </html>
