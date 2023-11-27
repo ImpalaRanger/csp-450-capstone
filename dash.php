@@ -50,7 +50,7 @@
 
 
         // Get the client's account balance
-        $stmtBalance = $con->prepare("SELECT balanceAmount FROM clientBalance WHERE clientID = ?");
+        $stmtBalance = $con->prepare("SELECT balanceAmount FROM balance WHERE userID = ?");
         $stmtBalance->bind_param("i", $id);
         $stmtBalance->execute();
         $balance_result = $stmtBalance->get_result();
