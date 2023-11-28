@@ -58,7 +58,7 @@ if ($stmtAppointment->execute()) {
         }
 
         $balanceDecrement = 150.00;
-        $stmtUpdateBalance->bind_param('fi', $balanceDecrement, $clientId);
+        $stmtUpdateBalance->bind_param('di', $balanceDecrement, $clientId);
 
     } else {
         // If the client doesn't have an existing balance, insert a new record

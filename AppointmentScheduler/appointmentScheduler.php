@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Scheduler</title>
-    <link rel="stylesheet" type="text/css" href="../cssStyles.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include_once '../nav.php';
     include_once '../main.php'; // Include the database connection file
