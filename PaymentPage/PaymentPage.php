@@ -8,9 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include '../main.php';
+
+    
+    include_once '../nav.php';
+    
     global $balance;
     global $hasBalance;
-    $id = 1;//$_SESSION['id'];
+    $id = $_SESSION['id'];
 
     //1 needs to be replaced with the id variable
     $stmt = $con->prepare('SELECT * FROM balance WHERE userID ='.$id);

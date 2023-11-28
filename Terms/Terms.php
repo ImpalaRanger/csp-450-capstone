@@ -50,7 +50,7 @@
         <!-- Add more sections as needed -->
 
         <section>
-            <p>If you have any questions or concerns regarding these terms, please <a href="/ContactUs/ContactUs.html">contact us</a>.</p>
+            <p>If you have any questions or concerns regarding these terms, please <a href="/450Capstone/csp-450-capstone/ContactUs/ContactUs.php">contact us</a>.</p>
         </section>
         </div>
     </div>
