@@ -38,7 +38,6 @@ if ($stmtAppointment->execute()) {
         die('Error in preparing the statement for checking client balance: ' . $con->error);
     }
 
-
     $stmtCheckBalance->bind_param('i', $clientId);
 
     // Execute the check for existing balance
@@ -50,15 +49,15 @@ if ($stmtAppointment->execute()) {
 
     // If the client has an existing balance, update it
     if ($resultCheckBalance->num_rows > 0) {
-        $queryUpdateBalance = "UPDATE balance SET balanceAmount = balanceAmount - ? WHERE userID = ?";
+        $queryUpdateBalance = "UPDATE balance SET balanceAmount = balanceAmount + ? WHERE userID = ?";
         $stmtUpdateBalance = $con->prepare($queryUpdateBalance);
 
         if (!$stmtUpdateBalance) {
             die('Error in preparing the statement for updating client balance: ' . $stmtUpdateBalance->error);
         }
 
-        $balanceDecrement = 150.00;
-        $stmtUpdateBalance->bind_param('fi', $balanceDecrement, $clientId);
+        $balanceIncrement = 150.00;
+        $stmtUpdateBalance->bind_param('di', $balanceIncrement, $clientId);
 
     } else {
         // If the client doesn't have an existing balance, insert a new record
@@ -69,7 +68,7 @@ if ($stmtAppointment->execute()) {
             die('Error in preparing the statement for inserting client balance: ' . $stmtUpdateBalance->error);
         }
 
-        $initialBalance = -150.00; // Set the initial balance to a negative value
+        $initialBalance = 150.00; // Set the initial balance to a positive value
         $stmtUpdateBalance->bind_param('di', $initialBalance, $clientId);
     }
 

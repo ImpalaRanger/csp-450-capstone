@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Scheduler</title>
-    <link rel="stylesheet" type="text/css" href="../cssStyles.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
     <?php
     include_once '../nav.php';
     include_once '../main.php'; // Include the database connection file
@@ -121,7 +121,38 @@
 
     function submitAppointment() {
         // Submit the form when the button is clicked
-        document.querySelector('form').submit();
+        //document.querySelector('form').submit();
+        var therapistId = document.getElementById('selectName').value;
+        var selectedDate = document.getElementById('selectDate').value;
+        var selectedTimeId = document.getElementById('selectTime').value;
+
+        // Create a form data object
+        var formData = new FormData();
+        formData.append('selectName', therapistId);
+        formData.append('selectDate', selectedDate);
+        formData.append('selectTime', selectedTimeId);
+
+        // Use fetch to submit the form asynchronously
+        fetch('submitAppointment.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Open a new pop-up window and write the data
+            var popupWindow = window.open('', 'appointmentPopup', 'width=600,height=400,scrollbars=yes,resizable=yes');
+            popupWindow.document.write(data);
+
+            // Add an event listener for the unload event on the pop-up window
+            popupWindow.addEventListener('unload', function () {
+                // Refresh the original page when the pop-up window is closed
+                location.reload();
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while processing the request.');
+        });
     }
 </script>
 
