@@ -131,3 +131,52 @@ textarea {
   box-sizing: border-box;
 }
 
+
+/* Appointment form specific */
+
+#appointment-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 5vh;
+
+}
+
+#aptForm {
+  width: 100%;
+}
+
+#aptForm select, #selectDate {
+  width: 75%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+select,
+input {
+  margin-bottom: 16px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button.btn {
+  padding: 10px;
+  background-color: #2e8a68;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit-container {
+  margin-top: 20px;
+}
