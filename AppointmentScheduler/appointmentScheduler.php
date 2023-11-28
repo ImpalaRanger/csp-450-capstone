@@ -34,10 +34,10 @@
     <main class="container">
         <h1 style="text-align:center">Appointment Scheduler</h1>
         <div id="appointment-form" class="inner-container">
-            <form method="post" action="submitAppointment.php">
+            <form id="aptForm" method="post" action="submitAppointment.php">
                 <label for="selectName">Select a Name:</label>
                 <select id="selectName" name="selectName">
-                    <option value="">Select a Therapist</option> <!-- Default option -->
+                    <option value="">Select a Therapist</option>
                     <?php
                     while ($row = $result->fetch_assoc()) {
                         $fullName = $row['first_name'] . ' ' . $row['last_name'];
@@ -51,7 +51,7 @@
 
                 <label for="selectTime">Select a Time:</label>
                 <select id="selectTime" name="selectTime">
-                    <option value="">Select a Time</option> <!-- Default option -->
+                    <option value="">Select a Time</option>
                     <?php
                     while ($timeRow = $timeResult->fetch_assoc()) {
                         $formattedTime = date('h:i A', strtotime($timeRow['timeStart'])) . ' - ' . date('h:i A', strtotime($timeRow['timeFinish']));
