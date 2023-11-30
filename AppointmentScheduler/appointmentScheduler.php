@@ -10,7 +10,7 @@
     include_once '../main.php'; // Include the database connection file
 
     // Query to select users where isTherapist is null
-    $query = "SELECT id, first_name, last_name FROM users WHERE isTherapist IS NULL";
+    $query = "SELECT id, first_name, last_name FROM users WHERE isTherapist IS NOT NULL";
 
     // Use a prepared statement to execute the query
     $stmt = $con->prepare($query);
