@@ -27,6 +27,52 @@ body {
     flex-direction:row;
   } 
 
+  
+  /* Index page specific */
+  
+.index {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  padding: 3%;
+}
+
+.index h3 {
+  text-align: center;
+}
+
+.grid-item {
+  background-color: white;
+  padding: 3%;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+  grid-column: span 2;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+  .index {
+    grid-template-columns: 1fr;
+  }
+
+  #header {
+    grid-row: 1;
+  }
+
+  #upcomingApts {
+    grid-row: 2;
+  }
+
+  #actBal {
+    grid-row: 3;
+  }
+}
 
 
 /* nav bar/header styles */

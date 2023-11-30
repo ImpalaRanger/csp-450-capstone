@@ -76,7 +76,7 @@ if ($stmtAppointment->execute()) {
 
     // Execute the client balance update/insert
     if ($stmtUpdateBalance->execute()) {
-        echo "$$balanceIncrement has been charged to your account.";
+        echo " $$balanceIncrement has been charged to your account.";
 
 
         // Commit the transaction
