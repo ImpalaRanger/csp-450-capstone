@@ -201,7 +201,7 @@
                     </label>
         
                     <input type="text" name="ZipCode"
-                    id="ZipCodeInput" required>
+                    id="ZipCodeInput" pattern="....." required>
 
             </section>
 
