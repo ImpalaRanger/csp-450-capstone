@@ -232,7 +232,6 @@
 
     </main>
 
-    <footer id="Footer"></footer>
 </body>
 
 </html>
