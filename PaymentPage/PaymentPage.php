@@ -102,7 +102,7 @@
         
                     <input type="text" name="txtPaymentAmount"
                     placeholder="$000,000.00"
-                    id="PaymentAmountInput">
+                    id="PaymentAmountInput" required>
 
             </section>
 
