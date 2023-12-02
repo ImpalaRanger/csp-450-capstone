@@ -160,7 +160,7 @@
         
                     <input type="text" name="NameOnCard"
                     placeholder="FirstName LastName"
-                    id="NameOnCardInput">
+                    id="NameOnCardInput" required>
 
             </section>
 
