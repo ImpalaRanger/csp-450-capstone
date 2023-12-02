@@ -118,7 +118,7 @@
         
                     <input type="text" name="CreditCardNumber"
                     placeholder="1234 5678 9123 456"
-                    id="CreditCardNumberInput" required>
+                    id="CreditCardNumberInput" pattern=".... .... .... ...." required>
 
             </section>
 
