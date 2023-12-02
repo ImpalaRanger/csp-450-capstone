@@ -146,7 +146,7 @@
         
                     <input type="text" name="SecurityCode"
                     placeholder="000"
-                    id="SecurityCodeInput">
+                    id="SecurityCodeInput" required>
 
             </section>
 
