@@ -214,7 +214,7 @@
                     </label>
         
                     <input type="text" name="Country"
-                    id="CountryInput">
+                    id="CountryInput" required>
 
             </section>
 
