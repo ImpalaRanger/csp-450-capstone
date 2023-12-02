@@ -175,7 +175,7 @@
                     </label>
         
                     <input type="text" name="StreetAddress"
-                    id="StreetAddressInput">
+                    id="StreetAddressInput" required>
 
             </section>
 
