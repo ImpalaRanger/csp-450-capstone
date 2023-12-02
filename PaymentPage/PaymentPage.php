@@ -188,7 +188,7 @@
                     </label>
         
                     <input type="text" name="StateAddress"
-                    id="StateAddressInput" pattern=".." required>
+                    id="StateAddressInput" pattern=".." value="Two Letter Abbreviation" required>
 
             </section>
 
