@@ -188,7 +188,7 @@
                     </label>
         
                     <input type="text" name="StateAddress"
-                    id="StateAddressInput" required>
+                    id="StateAddressInput" pattern=".." required>
 
             </section>
 
