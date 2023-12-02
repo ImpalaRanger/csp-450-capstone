@@ -132,7 +132,7 @@
         
                     <input type="text" name="ExpirationDate"
                     placeholder="00/00"
-                    id="ExpirationDateInput">
+                    id="ExpirationDateInput" required>
 
             </section>
 
