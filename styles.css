@@ -1,228 +1,248 @@
 /* site wide styles */
 
 html {
-    background-color: #2e8a68;
-  }
+  background-color: #2e8a68;
+}
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .container {
-    min-height: 97vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  min-height: 97vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .inner-container {
-    background-color: aliceblue;
-    min-height: 87vh;
-    width: 90%;
-    max-width: 900px;
-    border: solid black 2px;
-    border-radius: 20px;  
-    display:flex;
-    flex-direction:row;
-  } 
+  background-color: aliceblue;
+  min-height: 87vh;
+  width: 90%;
+  max-width: 900px;
+  border: solid black 2px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+}
 
-  
-  /* Index page specific */
-  
+/* Index page specific */
+
 .index {
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 5%;
-  padding: 3%;
+height: 100%;
+display: grid;
+grid-template-rows: 1fr;
+grid-template-columns: 1fr 1fr;
+gap: 5%;
+padding: 3%;
 }
 
 .index h3 {
-  text-align: center;
+text-align: center;
 }
 
 .grid-item {
-  background-color: white;
-  padding: 3%;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+background-color: white;
+padding: 3%;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #header {
-  grid-column: span 2;
-  text-align: center;
+grid-column: span 2;
+text-align: center;
 }
 
 @media screen and (max-width: 600px) {
-
-  .index {
-    grid-template-columns: 1fr;
-  }
-
-  #header {
-    grid-row: 1;
-  }
-
-  #upcomingApts {
-    grid-row: 2;
-  }
-
-  #actBal {
-    grid-row: 3;
-  }
+.index {
+  grid-template-columns: 1fr;
 }
 
+#header {
+  grid-row: 1;
+}
+
+#upcomingApts {
+  grid-row: 2;
+}
+
+#actBal {
+  grid-row: 3;
+}
+}
 
 /* nav bar/header styles */
 header{
-    background-color: white;
-    padding:0px;
-    margin:0px;
-    width: 100%;
-    text-align: center;
-    text-decoration-color: black;
+  background-color: #4a7c59; /* Enhanced: A darker shade for contrast */
+  color: white; /* Enhanced: White text for better readability */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Enhanced: Adding some shadow for depth */
+  padding:0px;
+  margin:0px;
+  width: 100%;
+  text-align: center;
+  position: sticky; /* Enhanced: Make the header stick to the top */
+  top: 0;
+  z-index: 1000; /* Enhanced: Ensures the header stays above other elements */
+}
+
+#HeaderSection {
+  display: flex;
+  justify-content: center; /* Enhanced: Centering the navigation links */
+  align-items: center;
+  flex-wrap: wrap; /* Enhanced: Allow the navigation items to wrap on smaller screens */
 }
 
 a{
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: large;
-    text-decoration: none;
-    }
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: large;
+  text-decoration: none;
+  color: white; /* Enhanced: Ensuring the links are white */
+  transition: background-color 0.3s ease-in-out; /* Enhanced: Smooth transition for hover effect */
+}
+
+a:hover {
+  background-color: #367a4f; /* Enhanced: Slightly darker background on hover for feedback */
+}
 
 #Logo{
-        text-align: center;
-        font-size: x-large;
-        margin-bottom: 10px;
-    }
+  text-align: center;
+  font-size: x-large;
+  margin-bottom: 10px;
+  color: white; /* Enhanced: Making the logo text white */
+  font-weight: bold; /* Enhanced: Making the logo more prominent */
+  padding: 10px 20px;
+}
 
+@media screen and (max-width: 768px) {
+  /* Enhanced: Responsive design for smaller screens */
+  #HeaderSection {
+      flex-direction: column; /* Enhanced: Stack the links vertically on small screens */
+  }
+}
 
-
-
- 
 /* privary policy page-specific */    
 .container-info{
-  padding: 10px;
+padding: 10px;
 }
 
 
 /* faq page-specific */
 
 .faq-info {
-  width: 100%;
+width: 100%;
 }
 
 
 .faq-item {
-  width: 80%;
-  margin: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+width: 80%;
+margin: 20px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+overflow: hidden;
+transition: transform 0.3s ease-in-out;
 }
 
 .question {
-  padding: 15px;
-  font-weight: bold;
+padding: 15px;
+font-weight: bold;
 }
 
 .answer {
-  padding: 15px;
-  display: none;
+padding: 15px;
+display: none;
 }
 
 .faq-item.expanded {
-  transform: scaleY(1.1);
+transform: scaleY(1.1);
 }
 
 .faq-item.expanded .answer {
-  display: block;
+display: block;
 }
 
 .terms-info {
-  padding: 10px;
+padding: 10px;
 }
 
 
 /* contact us page-specific */
 
 .contact-info {
-  padding: 10px;
-  width: 100%;
+padding: 10px;
+width: 100%;
 }
 
 .contact-section {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 .contact-form {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 label {
-  margin-bottom: 8px;
+margin-bottom: 8px;
 }
 
 input,
 textarea {
-  margin-bottom: 16px;
-  padding: 8px;
-  width: 100%;
-  box-sizing: border-box;
+margin-bottom: 16px;
+padding: 8px;
+width: 100%;
+box-sizing: border-box;
 }
 
 
 /* Appointment form specific */
 
 #appointment-form {
-  display: flex;
-  justify-content: center;
-  padding-top: 5vh;
+display: flex;
+justify-content: center;
+padding-top: 5vh;
 
 }
 
 #aptForm {
-  width: 100%;
+width: 100%;
 }
 
 #aptForm select, #selectDate {
-  width: 75%;
+width: 75%;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 label {
-  margin-bottom: 8px;
-  font-weight: bold;
+margin-bottom: 8px;
+font-weight: bold;
 }
 
 select,
 input {
-  margin-bottom: 16px;
-  padding: 8px;
-  width: 100%;
-  box-sizing: border-box;
+margin-bottom: 16px;
+padding: 8px;
+width: 100%;
+box-sizing: border-box;
 }
 
 button.btn {
-  padding: 10px;
-  background-color: #2e8a68;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+padding: 10px;
+background-color: #2e8a68;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
 }
 
 #submit-container {
-  margin-top: 20px;
+margin-top: 20px;
 }
