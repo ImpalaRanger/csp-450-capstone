@@ -81,7 +81,6 @@ header{
   margin:0px;
   width: 100%;
   text-align: center;
-  position: sticky; /* Enhanced: Make the header stick to the top */
   top: 0;
   z-index: 1000; /* Enhanced: Ensures the header stays above other elements */
 }
@@ -246,3 +245,57 @@ cursor: pointer;
 #submit-container {
 margin-top: 20px;
 }
+
+/* Footer Styles */
+
+footer {
+  background-color: #333; /* Dark background similar to the example */
+  color: white;
+  font-size: 14px; /* Adjust font size as needed */
+  line-height: 1.6;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align the content */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links,
+.footer-social-media {
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social-media a {
+  color: white;
+  margin: 0 10px; /* Spacing between links */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover,
+.footer-social-media a:hover {
+  color: #aaa; /* Lighten the link color on hover */
+}
+
+.footer-bottom-text {
+  border-top: 1px solid #444; /* Separator line */
+  text-align: center;
+  padding-top: 20px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+  }
+  .footer-links,
+  .footer-social-media {
+      text-align: center;
+  }
+}
+
