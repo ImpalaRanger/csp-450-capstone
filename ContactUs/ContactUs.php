@@ -12,7 +12,6 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstName = htmlspecialchars($_POST['firstName']);
         $lastName = htmlspecialchars($_POST['lastName']);
-        $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
         $question = htmlspecialchars($_POST['question']);
 
@@ -58,9 +57,6 @@
 
                         <label for="lastName">Last Name:</label>
                         <input type="text" id="lastName" name="lastName" required>
-
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
 
                         <label for="email">Email Address:</label>
                         <input type="email" id="email" name="email" required>
