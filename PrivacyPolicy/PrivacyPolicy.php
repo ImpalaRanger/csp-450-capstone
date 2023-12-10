@@ -20,7 +20,7 @@
 
 
         <section class="container-info">
-            <h3>Last Updated: [Insert Date]</h3>
+            <h3>Last Updated: December 10, 2023</h3>
             <p>This privacy notice discloses the privacy practices for [Your Therapy Website Name]. This privacy notice applies solely to information collected by this website.</p>
 
             <h3>Information We Collect</h3>
