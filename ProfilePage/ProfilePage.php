@@ -76,7 +76,7 @@
     </div>
     </main>
 
-    <footer id="Footer">
+    <footer>
 <div class="footer-content">
         <div class="footer-links">
             <a href="/450Capstone/csp-450-capstone/dash.php">Home</a>
