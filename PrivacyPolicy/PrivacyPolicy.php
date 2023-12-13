@@ -60,7 +60,26 @@
     </main>
 
     <footer>
-       
+       <div class="footer-content">
+        <div class="footer-links">
+            <a href="/450Capstone/csp-450-capstone/dash.php">Home</a>
+            <a href="/450Capstone/csp-450-capstone/ProfilePage/ProfilePage.php">Profile Page</a>
+            <a href="/450Capstone/csp-450-capstone/Messages/messaging.php">Chat Page</a>
+            <a href="/450Capstone/csp-450-capstone/AppointmentScheduler/appointmentScheduler.php">Appointment Scheduler</a>
+            <a href="/450Capstone/csp-450-capstone/PaymentPage/PaymentPage.php">Payment Page</a>
+            <a href="/450Capstone/csp-450-capstone/FAQ/FAQ.php">FAQ</a>
+            <a href="/450Capstone/csp-450-capstone/ContactUs/ContactUs.php">Contact Us</a>
+        </div>
+        <div class="footer-social-media">
+            <!-- Add social media links here, using icons or text -->
+            <a href="https://www.facebook.com/">Facebook</a>
+            <a href="https://twitter.com/">Twitter</a>
+            <a href="https://www.instagram.com/">Instagram</a>
+        </div>
+        <div class="footer-bottom-text">
+            <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+        </div>
+    </div>
     </footer>
 
     </div>
