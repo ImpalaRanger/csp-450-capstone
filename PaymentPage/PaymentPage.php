@@ -58,9 +58,12 @@
         $stmt->free_result( );
         $stmt->close( );
         //Insert a new record into the transaction table.
-        $stmt1=$con->prepare("INSERT INTO `transaction` (`transactionAmount`, `userID`) VALUES (".$paymentAmount.", ".$id.")");
+        $sql1="INSERT INTO `transaction` (`transactionAmount`, `userID`) VALUES (?,?)";
+        $stmt1 = $con->prepare($sql);
+        $stmt1->bind_param("di", $paymentAmount, $id);
         $stmt1->execute();
-        $result1=$stmt1->get_result();
+        $stmt1->free_result( );
+        $stmt1->close( );
 
         unset($_POST['submit']);
         unset($_POST['txtPaymentAmount']);
