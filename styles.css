@@ -109,10 +109,16 @@ a:hover {
   text-align: center;
   font-size: x-large;
   margin-bottom: 10px;
-  color: white; /* Enhanced: Making the logo text white */
-  font-weight: bold; /* Enhanced: Making the logo more prominent */
+  color: white; 
+  font-weight: bold; 
   padding: 10px 20px;
 }
+
+#Logo img {
+  max-width: 150px;
+  height: auto; 
+}
+
 
 @media screen and (max-width: 768px) {
   /* Enhanced: Responsive design for smaller screens */
