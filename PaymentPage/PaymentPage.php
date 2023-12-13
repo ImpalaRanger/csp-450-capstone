@@ -51,12 +51,13 @@
         $balance=$newUserBalance;
         
         //Update the balance of the user in the balance table.
-        
-        $stmt = $con->prepare('UPDATE balance SET balanceAmount='.$newUserBalance.' WHERE userID='.$id);
+        $sql="UPDATE balance SET balanceAmount=? WHERE userID=?";
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("di", $newUserBalance, $id);
         $stmt->execute();
-        $result= $stmt->get_result();
+        $stmt->free_result( );
+        $stmt->close( );
         //Insert a new record into the transaction table.
-        $tableName='transaction';
         $stmt1=$con->prepare("INSERT INTO `transaction` (`transactionAmount`, `userID`) VALUES (".$paymentAmount.", ".$id.")");
         $stmt1->execute();
         $result1=$stmt1->get_result();
