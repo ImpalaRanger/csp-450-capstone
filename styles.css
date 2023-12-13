@@ -115,8 +115,8 @@ a:hover {
 }
 
 #Logo img {
-  max-width: 150px;
-  height: auto; 
+  max-width: 150px; /* This sets the maximum width of the logo */
+  height: auto; /* This ensures that the height scales proportionally */
 }
 
 
@@ -149,6 +149,12 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 cursor: pointer;
 overflow: hidden;
 transition: transform 0.3s ease-in-out;
+}
+
+.faq-item .answer a {
+  color: #007bff; /* Set the color to a visible and contrasting one */
+  text-decoration: underline; /* Ensure the link is underlined */
+  font-weight: bold; /* Optional: make the link bold for visibility */
 }
 
 .question {
