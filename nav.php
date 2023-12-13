@@ -1,8 +1,9 @@
+
 <header id="Header">
 
 <section id="Logo">
-    PLACE HOLDER
-</section>
+        <img src="../theraconnect-high-resolution-logo-transparent.png" alt="TheraConnect Logo">
+    </section>
 
 <section id="HeaderSection">
     <a href="/450Capstone/csp-450-capstone/dash.php">Home</a>
