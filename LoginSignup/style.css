@@ -75,10 +75,14 @@ input[type=email], input[type=password], input[type=text] {
     opacity: 0.8;
   }
 
-
-
-
 .card-footer {
   background-color: aliceblue;
   margin-top: 50px;
 }  
+
+.login-logo {
+  width: 200px; 
+  height: auto; 
+  display: block; 
+  margin: 10px auto; 
+}
